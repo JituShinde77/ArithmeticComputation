@@ -5,3 +5,4 @@ read -p "Enter the 2nd Number: " b
 read -p "Enter the 3rd Number: " c
 
 result1=$(( $a+$b*$c ))
+result2=$(( $a*$b+$c ))
