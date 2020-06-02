@@ -22,7 +22,7 @@ do
 	(( counter++ ))
 done
 
-# Store result in Ascending Order
+# Store result in Descending Order
 
 
 
@@ -33,7 +33,6 @@ do
 
 		if [[ `echo ${resultArray[$j]} ${resultArray[$i]} | awk '{ print ($1 < $2) }'` -eq 1 ]]
 		then
-			echo "ONe"
 			temp=${resultArray[$j]}
 			resultArray[$j]=${resultArray[$i]}
 			resultArray[$i]=$temp
@@ -42,3 +41,17 @@ do
 done
 
 echo ${resultArray[@]}
+
+#Display Result in Ascending Order
+for ((i=3; i>=0; i-- ))
+do 
+	echo ${resultArray[$i]}
+done
+
+
+
+
+
+
+
+
