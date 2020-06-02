@@ -15,10 +15,30 @@ result["Result4"]=$(( $a%$b+$c ))
 
 counter=0
 
-echo "DDD"${result[@]}
-
+# Store result into Array
 for i in ${!result[@]}
 do
 	resultArray[$counter]=${result[$i]}
 	(( counter++ ))
 done
+
+# Store result in Ascending Order
+
+
+
+for (( i=1; i<4; i++ ))
+do
+	for (( j=0; j<$i; j++ ))
+	do
+
+		if [[ `echo ${resultArray[$j]} ${resultArray[$i]} | awk '{ print ($1 < $2) }'` -eq 1 ]]
+		then
+			echo "ONe"
+			temp=${resultArray[$j]}
+			resultArray[$j]=${resultArray[$i]}
+			resultArray[$i]=$temp
+		fi
+	done
+done
+
+echo ${resultArray[@]}
